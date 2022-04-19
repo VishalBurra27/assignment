@@ -29,8 +29,20 @@
 \bibliographystyle{IEEEtran}
 
 
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
 \providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
-
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
 
 \providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
 \newcommand{\question}{\noindent \textbf{Question: }}	
@@ -38,7 +50,10 @@
 
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 
+\let\vec\mathbf
 
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 
 \vspace{3cm}
 \title{I.C.S.E 10, 2018}
@@ -62,32 +77,56 @@
         x^3+ax+b=0
     \end{equation}
     On substituting $x=-2$  int the equation (\ref{maineq})
-    \begin{align*}
-        \implies \brak{-2}^3+a\brak{-2}+b&=0\\ 
-        \implies 2a-b&=-8
-    \end{align*}
-    The value of $b$ in terms of $a$ is :
+        $$\implies \brak{-2}^3+a\brak{-2}+b=0$$ 
+
     \begin{equation}
     \label{eq1}
-        b=2a+8
+        \implies 2a-b=-8
     \end{equation}
-    \\
+
     On substituting $x=-3$ in the equation (\ref{maineq})$$\implies \brak{-3}^3+a\brak{-3}+b=0$$
     \begin{equation}
     \label{eq2}
         \implies 3a-b=-27
     \end{equation}
-    On substituting equation (\ref{eq1}) in equation (\ref{eq2})
+    
+    The system of equations ,
+    $$2a-b=-8$$
+    $$3a-b=-27$$
+    can be re-written in matrix form as :
+    $$\myvec{2&-1\\3&-1}\myvec{a\\b}\equals\myvec{-8\\-27}$$
+    Let,
+    $$\vec{A}=\myvec{2&-1\\3&-1} , \vec{X}=\myvec{a\\b} , \vec{B}=\myvec{-8\\-27}$$
     \begin{align*}
-        \implies 3a-\brak{2a+8}&=-27\\
-        \implies a-8&=-27\\
-        \implies a&=-19
+        \implies \vec{A}\vec{X}=\vec{B}
     \end{align*}
-    Substitute value of $a$ in equation (\ref{eq1}) 
+    
+    
+        Pre-multiplying both sides with $\vec{A}^{-1}$ :
+        
     \begin{align*}
-    \implies b&=2\brak{-19}+8\\
-    \implies b&=-30\\
+        &\implies\vec{A}^{-1}\vec{A}\vec{X}=\vec{A}^{-1}\vec{B}\\
+        &\implies\vec{X}=\vec{A}^{-1}\vec{B}\\
+        &\vec{A}=\myvec{2&-1\\3&-1}\\
+        &\implies\mydet{A}=(2\times -1)-(3\times-1)\\
+        &\implies\mydet{A}=1\\
     \end{align*}
+    
+    
+    Since  $$\vec{A}^{-1}=\frac{1}{\mydet{A}}adj(A)$$
+    \begin{align*}
+        &\implies\vec{A}^{-1}=\myvec{-1&1\\-3&2}\\
+        &\implies\vec{X}=\myvec{-1&1\\-3&2}\myvec{-8\\-27}\\
+        &\implies\vec{X}=\myvec{-19\\-30}\\
+        &\implies\myvec{a\\b}=\myvec{-19\\-30}\\
+        &\implies a=-19 \And b=-30\\
+    \end{align*}
+    
+    
+    
+    
+
+
     $ \therefore $ The value of $a = -19$ and value of $b = -30$.\\
     
     Using values of $a$ and $b$, equation (\ref{maineq}) can be re-written as :
@@ -100,9 +139,10 @@
     \label{grapheq}
         y=x^3-19x-30
     \end{equation}
+    
 \begin{figure}[h]
-    \includegraphics[width=0.5\textwidth]{Graph.png}
-    \caption{Graph of equation (\ref{grapheq}) intersects X-axis at $x=-3$ and $x=-2$ }
+    \includegraphics[width=0.9\columnwidth]{figs/graph.png}
+    \caption{Graph of equation. \ref{grapheq} intersects X-axis at $x=-3$ $\And$ $x=-2$ }
     \label{graph}
 
 \end{figure}
