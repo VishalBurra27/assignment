@@ -74,9 +74,9 @@
     Then, -2 and -3 are solutions of the equation \\
     \begin{equation}
     \label{maineq}
-        x^3+ax+b=0
+        x^3+ax+b=0 
     \end{equation}
-    On substituting $x=-2$  int the equation (\ref{maineq})
+    On substituting $x=-2$  int the equation \eqref{maineq}
         $$\implies \brak{-2}^3+a\brak{-2}+b=0$$ 
 
     \begin{equation}
@@ -84,7 +84,7 @@
         \implies 2a-b=-8
     \end{equation}
 
-    On substituting $x=-3$ in the equation (\ref{maineq})$$\implies \brak{-3}^3+a\brak{-3}+b=0$$
+    On substituting $x=-3$ in the equation \eqref{maineq}$$\implies \brak{-3}^3+a\brak{-3}+b=0$$
     \begin{equation}
     \label{eq2}
         \implies 3a-b=-27
@@ -95,41 +95,50 @@
     $$3a-b=-27$$
     can be re-written in matrix form as :
     $$\myvec{2&-1\\3&-1}\myvec{a\\b}\equals\myvec{-8\\-27}$$
-    Let,
-    $$\vec{A}=\myvec{2&-1\\3&-1} , \vec{X}=\myvec{a\\b} , \vec{B}=\myvec{-8\\-27}$$
-    \begin{align*}
-        \implies \vec{A}\vec{X}=\vec{B}
-    \end{align*}
+    Let, $i$th row is a matrix be represented as $R_i$ .\\
+    The system of equations ,
+    $$a_1x+b_1y=c_1$$
+    $$a_2x+b_2y=c_2$$
+    if represented as :
+    \myvec{\begin{array}{c c|c}
+        a_1 & b_1 &c_1 \\
+        a_2 & b_2& c_2\\ 
+    \end{array}}\\
+    Solution of such system of equations is $x_1$ $\And$ $y_1$ where matrix is reduced using row transformation to ;\\
+    \begin{center}
+       \myvec{\begin{array}{cc|c}
+        1 & 0&x_1 \\
+        0& 1& y_1\\ 
+        \end{array}}\\
+    \end{center}
+    For given system of equations,\\
+    
+    \begin{center}
+        \myvec{\begin{array}{cc|c}
+            2& -1&-8 \\
+            3& -1&-27\\
+        \end{array}}\\
+    \end{center}
+    \textbf{Transformation 1 :} $R_1 \rightarrow R_2-R_1$\\
+    
+    $\implies$
+    \myvec{\begin{array}{cc|c}
+        1& 0&-19 \\
+        3& -1&-27\\
+    \end{array}}\\
+    \textbf{Transformation 2 :} $R_2\rightarrow 3R_1-R_2$\\
+    
+    $\implies$
+    \myvec{\begin{array}{cc|c}
+        1& 0&-19 \\
+        0& 1&-30
+    \end{array}}
     
     
-        Pre-multiplying both sides with $\vec{A}^{-1}$ :
-        
-    \begin{align*}
-        &\implies\vec{A}^{-1}\vec{A}\vec{X}=\vec{A}^{-1}\vec{B}\\
-        &\implies\vec{X}=\vec{A}^{-1}\vec{B}\\
-        &\vec{A}=\myvec{2&-1\\3&-1}\\
-        &\implies\mydet{A}=(2\times -1)-(3\times-1)\\
-        &\implies\mydet{A}=1\\
-    \end{align*}
-    
-    
-    Since  $$\vec{A}^{-1}=\frac{1}{\mydet{A}}adj(A)$$
-    \begin{align*}
-        &\implies\vec{A}^{-1}=\myvec{-1&1\\-3&2}\\
-        &\implies\vec{X}=\myvec{-1&1\\-3&2}\myvec{-8\\-27}\\
-        &\implies\vec{X}=\myvec{-19\\-30}\\
-        &\implies\myvec{a\\b}=\myvec{-19\\-30}\\
-        &\implies a=-19 \And b=-30\\
-    \end{align*}
-    
-    
-    
-    
-
 
     $ \therefore $ The value of $a = -19$ and value of $b = -30$.\\
     
-    Using values of $a$ and $b$, equation (\ref{maineq}) can be re-written as :
+    Using values of $a$ and $b$, equation \eqref{maineq} can be re-written as :
     \begin{equation}
     \label{Peq}
         x^3-19x-30=0
@@ -142,11 +151,17 @@
     
 \begin{figure}[h]
     \includegraphics[width=0.9\columnwidth]{figs/graph.png}
-    \caption{Graph of equation. \ref{grapheq} intersects X-axis at $x=-3$ $\And$ $x=-2$ }
+    \caption{Graph of equation. \eqref{grapheq} intersects X-axis at $x=-3$ $\And$ $x=-2$ }
     \label{graph}
 
 \end{figure}
-
-
+\newpage
+Output of python code which checks if both 'a' and 'b' are solutions of the equations \eqref{eq1} and \eqref{eq2}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/output.png}
+    \caption{Output of given code.}
+    \label{op}
+\end{figure}
 
 \end{document}
