@@ -100,39 +100,33 @@
     $$a_1x+b_1y=c_1$$
     $$a_2x+b_2y=c_2$$
     if represented as :
-    \myvec{\begin{array}{c c|c}
+    \myvec{
         a_1 & b_1 &c_1 \\
-        a_2 & b_2& c_2\\ 
-    \end{array}}\\
+        a_2 & b_2& c_2 }\\
     Solution of such system of equations is $x_1$ $\And$ $y_1$ where matrix is reduced using row transformation to ;\\
     \begin{center}
-       \myvec{\begin{array}{cc|c}
+       \myvec{
         1 & 0&x_1 \\
-        0& 1& y_1\\ 
-        \end{array}}\\
+        0& 1& y_1 }\\
     \end{center}
     For given system of equations,\\
     
     \begin{center}
-        \myvec{\begin{array}{cc|c}
+        \myvec{
             2& -1&-8 \\
-            3& -1&-27\\
-        \end{array}}\\
+            3& -1&-27}
     \end{center}
     \textbf{Transformation 1 :} $R_1 \rightarrow R_2-R_1$\\
     
     $\implies$
-    \myvec{\begin{array}{cc|c}
+    \myvec{
         1& 0&-19 \\
-        3& -1&-27\\
-    \end{array}}\\
+        3& -1&-27}\\
     \textbf{Transformation 2 :} $R_2\rightarrow 3R_1-R_2$\\
     
     $\implies$
-    \myvec{\begin{array}{cc|c}
-        1& 0&-19 \\
-        0& 1&-30
-    \end{array}}
+    \myvec{1& 0&-19 \\
+        0& 1&-30}\\
     
     
 
@@ -149,18 +143,19 @@
         y=x^3-19x-30
     \end{equation}
     
-\begin{figure}[h]
-    \includegraphics[width=0.9\columnwidth]{figs/graph.png}
-    \caption{Graph of equation. \eqref{grapheq} intersects X-axis at $x=-3$ $\And$ $x=-2$ }
+\begin{figure}[h!]
+    \includegraphics[width=\columnwidth]{figs/graph.png}
+    \caption{Plot of $y=x^3-19x-30$ intersects X-axis at $x=-3$ $\And$ $x=-2$. }
     \label{graph}
 
 \end{figure}
 \newpage
-Output of python code which checks if both 'a' and 'b' are solutions of the equations \eqref{eq1} and \eqref{eq2}
-\begin{figure}[h]
+$a\And b$ are solutions of equations \eqref{eq1}$\And$ \eqref{eq2}. Hence, $a$ $\And$ $b$ satisfies the above equations.
+
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\columnwidth]{figs/output.png}
-    \caption{Output of given code.}
+    \caption{Output of python code.}
     \label{op}
 \end{figure}
 
